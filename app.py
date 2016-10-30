@@ -20,7 +20,7 @@ from models import Result
 def index():
   errors = []
   results = {}
-  if request.method == "POST"
+  if request.method == "POST":
     try:
       url = request.form['url']
       r = requests.get(url)
@@ -47,7 +47,7 @@ def index():
         no_stop_words_count.items(),
         key=operator.itemgetter(1),
         reverse=True
-      )
+      )[:10]
       try:
         result = Result(
           url=url,
