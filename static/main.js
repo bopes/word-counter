@@ -18,6 +18,7 @@
           $log.log(error);
         });
     };
+
     function getWordCount(jobID){
       var timeout = "";
       var poller = function(){
@@ -27,6 +28,7 @@
               $log.log(data, status);
             } else if (status === 200) {
               $log.log(data);
+              $scope.wordcounts = data;
               $timeout.cancel(timeout);
               return false;
             }
@@ -35,6 +37,7 @@
       };
       poller();
     }
+
   }
   ]);
 }());
